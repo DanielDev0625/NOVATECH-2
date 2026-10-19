@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaTech · Logística</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-seccion="logistica">
+  <header id="nav"></header>
+  <main>
+    <h1>Logística Inteligente</h1>
+
+    <div class="tarjeta">
+      <h3>Transportistas</h3>
+      <form id="form-transportista" class="fila">
+        <label>Nombre<input name="nombre" required></label>
+        <label>Teléfono<input name="telefono"></label>
+        <label>Valoración (1-5)<input name="valoracion" type="number" step="0.1" min="1" max="5" value="4" data-num></label>
+        <label>Costo por km<input name="costo_km" type="number" step="any" min="0" data-num required></label>
+        <button class="btn" type="submit">Agregar</button>
+      </form>
+      <div id="tabla-transportistas"></div>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Vehículos</h3>
+      <form id="form-vehiculo" class="fila">
+        <label>Transportista<select name="transportista_id" id="veh-transportista" data-num required></select></label>
+        <label>Placa<input name="placa" required></label>
+        <label>Tipo<input name="tipo" value="Camión"></label>
+        <label>Modelo<input name="modelo"></label>
+        <label>Capacidad (kg)<input name="capacidad_kg" type="number" min="0" data-num required></label>
+        <button class="btn" type="submit">Agregar</button>
+      </form>
+      <div id="tabla-vehiculos"></div>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Nuevo pedido</h3>
+      <form id="form-pedido" class="fila">
+        <label>Lote (código, opcional)<input name="lote_codigo" placeholder="LOT-..."></label>
+        <label>Cliente<input name="cliente" required></label>
+        <label>Origen<select name="origen" id="ped-origen" required></select></label>
+        <label>Destino<select name="destino" id="ped-destino" required></select></label>
+        <label>Peso (kg)<input name="peso_kg" type="number" min="0" data-num></label>
+        <label>Transportista<select name="transportista_id" id="ped-transportista" data-num></select></label>
+        <label>Vehículo<select name="vehiculo_id" id="ped-vehiculo" data-num></select></label>
+        <button class="btn sec" type="button" id="btn-sugerir">Sugerir transportista</button>
+        <button class="btn" type="submit">Crear pedido</button>
+      </form>
+      <div id="sugerencias"></div>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Optimizar ruta de entregas</h3>
+      <form id="form-ruta" class="fila">
+        <label>Origen<select id="ruta-origen"></select></label>
+        <label>Destinos (Ctrl/Cmd para varios)<select id="ruta-destinos" multiple size="5"></select></label>
+        <button class="btn" type="submit">Calcular ruta</button>
+      </form>
+      <div id="ruta-resultado"></div>
+    </div>
+
+    <div class="tarjeta"><h3>Pedidos</h3><div id="tabla-pedidos"></div></div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/seccion.js"></script>
+</body>
+</html>

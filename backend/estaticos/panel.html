@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaTech · Panel</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/modulos.css">
+  <link rel="stylesheet" href="css/panel.css">
+</head>
+<body>
+  <header id="nav"></header>
+  <main>
+    <h1>Panel general</h1>
+    <div class="grid">
+      <div class="tarjeta kpi"><b id="k-lotes">–</b>Lotes registrados</div>
+      <div class="tarjeta kpi"><b id="k-proceso">–</b>Lotes en proceso</div>
+      <div class="tarjeta kpi"><b id="k-pedidos">–</b>Pedidos activos</div>
+      <div class="tarjeta kpi"><b id="k-kwh">–</b>kWh (30 días)</div>
+    </div>
+    <div class="tarjeta"><h3>Alertas</h3><div id="alertas">Cargando…</div></div>
+    <div class="grid">
+      <a class="tarjeta" href="produccion.html"><h3>Trazabilidad Inteligente</h3>Lotes, etapas, certificados con QR.</a>
+      <a class="tarjeta" href="logistica.html"><h3>Logística Inteligente</h3>Transportistas, rutas y pedidos.</a>
+      <a class="tarjeta" href="costos.html"><h3>Eficiencia Energética</h3>Consumo, tarifas y costo por lote.</a>
+      <a class="tarjeta" href="reportes.html"><h3>Reportes</h3>Alertas y huella de carbono.</a>
+    </div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/panel.js"></script>
+</body>
+</html>

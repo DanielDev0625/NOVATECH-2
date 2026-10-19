@@ -1,0 +1,106 @@
+/* ===== Estilos compartidos por todos los módulos (panel, producción, logística, costos, reportes) ===== */
+
+/* Contenido principal centrado y con aire a los lados */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+}
+
+main h1 {
+  font-size: 1.6rem;
+  color: var(--azul);
+  margin-bottom: 20px;
+}
+
+main h3 { font-size: 1.05rem; color: var(--azul); margin-bottom: 6px; }
+
+/* Barra superior: la rellena js/sesion.js (logo, enlaces, usuario y botón Salir) */
+header#nav, header, .barra {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  padding: 10px 24px;
+  background: #fff;
+  border-bottom: 1px solid var(--borde);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, .06);
+}
+
+/* El logo ocupaba toda la pantalla: se limita su altura */
+header img, .barra img {
+  display: block;
+  height: 38px;
+  width: auto;
+  max-width: 160px;
+}
+
+/* Todo lo que va después del logo (enlaces, usuario, Salir) se alinea a la derecha */
+header img + * { margin-left: auto; }
+
+header a, .barra a {
+  color: var(--texto);
+  text-decoration: none;
+  font-size: .95rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background .15s, color .15s;
+}
+
+header a:hover, .barra a:hover { background: #e0e7ff; color: var(--azul); }
+
+header a.activo, header a.active, header a[aria-current], .barra a.activo {
+  background: var(--azul);
+  color: #fff;
+}
+
+header span, .barra span { font-size: .9rem; color: #64748b; }
+
+header button, .barra button {
+  padding: 6px 14px;
+  border: 1px solid var(--azul-claro);
+  background: transparent;
+  color: var(--azul-claro);
+  border-radius: 6px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+
+header button:hover, .barra button:hover { background: var(--azul-claro); color: #fff; }
+
+/* Tarjetas y rejilla */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.tarjeta {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, .08);
+  margin-bottom: 0;
+}
+
+main > .tarjeta { margin-bottom: 20px; }
+
+/* Tablas */
+table { width: 100%; border-collapse: collapse; background: #fff; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--borde); }
+th { background: var(--azul); color: #fff; font-weight: 600; }
+tr:hover td { background: #f8fafc; }
+
+/* Móvil */
+@media (max-width: 700px) {
+  header#nav, header, .barra { padding: 10px 14px; }
+  header img + * { margin-left: 0; }
+  main { padding: 16px 14px 40px; }
+}

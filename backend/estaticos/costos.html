@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaTech · Energía y costos</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body data-seccion="costos">
+  <header id="nav"></header>
+  <main>
+    <h1>Eficiencia Energética</h1>
+    <div class="tarjeta ok"><b>Recomendación:</b> <span id="recomendacion">…</span></div>
+
+    <div class="tarjeta">
+      <h3>Registrar consumo</h3>
+      <form id="form-consumo" class="fila">
+        <label>Máquina<input name="maquina" required></label>
+        <label>Proceso<input name="proceso" required></label>
+        <label>Lote (opcional)<input name="lote_codigo" placeholder="LOT-..."></label>
+        <label>kWh<input name="kwh" type="number" step="any" min="0" data-num required></label>
+        <label>Tarifa por kWh<input name="tarifa_kwh" type="number" step="any" min="0" data-num required></label>
+        <button class="btn" type="submit">Registrar</button>
+      </form>
+      <div id="tabla-consumos"></div>
+    </div>
+
+    <div class="tarjeta">
+      <h3>Tarifas eléctricas por franja</h3>
+      <form id="form-tarifa" class="fila">
+        <label>Nombre<input name="nombre" placeholder="Valle, Pico…" required></label>
+        <label>Hora inicio (0-23)<input name="hora_inicio" type="number" min="0" max="23" data-num required></label>
+        <label>Hora fin (1-24)<input name="hora_fin" type="number" min="1" max="24" data-num required></label>
+        <label>Valor por kWh<input name="valor_kwh" type="number" step="any" min="0" data-num required></label>
+        <button class="btn" type="submit">Guardar</button>
+      </form>
+      <div id="tabla-tarifas"></div>
+    </div>
+
+    <div class="tarjeta"><h3>Comparación entre periodos por proceso</h3><div id="tabla-procesos"></div></div>
+    <div class="tarjeta"><h3>Costo estimado por lote</h3><div id="tabla-costo-lote"></div></div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/seccion.js"></script>
+</body>
+</html>

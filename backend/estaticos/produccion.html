@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaTech · Trazabilidad</title>
+  <link rel="stylesheet" href="css/.css">
+</head>
+<body data-seccion="produccion">
+  <header id="nav"></header>
+  <main>
+    <h1>Trazabilidad Inteligente</h1>
+    <div class="tarjeta">
+      <h3>Registrar lote</h3>
+      <form id="form-lote" class="fila">
+        <label>Producto<input name="producto" required></label>
+        <label>Cantidad<input name="cantidad" type="number" step="any" min="0" data-num required></label>
+        <label>Unidad<input name="unidad" value="unidades"></label>
+        <label>Responsable<input name="responsable"></label>
+        <button class="btn" type="submit">Crear lote</button>
+      </form>
+    </div>
+    <div class="tarjeta"><h3>Lotes</h3><div id="tabla-lotes"></div></div>
+    <div class="tarjeta" id="detalle"><p class="vacio">Selecciona un lote para ver y actualizar sus etapas.</p></div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/seccion.js"></script>
+</body>
+</html>

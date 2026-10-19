@@ -1,0 +1,9 @@
+[project]
+name = "novatech-pymes"
+version = "0.1.0"
+description = "Plataforma de Operaciones Inteligentes para PyMEs Industriales"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

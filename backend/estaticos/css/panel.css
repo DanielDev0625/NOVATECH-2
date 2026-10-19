@@ -1,0 +1,47 @@
+/* ===== Panel general (panel.html) ===== */
+
+/* Indicadores */
+.kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: .9rem;
+  color: #64748b;
+  border-left: 4px solid var(--azul-claro);
+}
+
+.kpi b {
+  display: block;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: var(--azul);
+}
+
+/* Alertas */
+#alertas { font-size: .92rem; color: #475569; }
+
+#alertas > *, #alertas li {
+  padding: 8px 12px;
+  margin-top: 8px;
+  background: #fef2f2;
+  border-left: 4px solid #dc2626;
+  border-radius: 6px;
+  color: #7f1d1d;
+  list-style: none;
+}
+
+/* Accesos a los módulos */
+a.tarjeta {
+  display: block;
+  color: #64748b;
+  font-size: .92rem;
+  text-decoration: none;
+  transition: transform .15s, box-shadow .15s;
+}
+
+a.tarjeta h3 { color: var(--azul); }
+
+a.tarjeta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, .18);
+}

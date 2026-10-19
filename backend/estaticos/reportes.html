@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaTech · Reportes</title>
+  <link rel="stylesheet" href="css/reportes.css">
+</head>
+<body data-seccion="reportes">
+  <header id="nav"></header>
+  <main>
+    <h1>Reportes</h1>
+    <div class="tarjeta"><h3>Alertas</h3><div id="lista-alertas">Cargando…</div></div>
+
+    <div class="tarjeta">
+      <h3>Huella de carbono estimada (kg CO₂)</h3>
+      <div class="grid">
+        <div class="kpi"><b id="h-energia">–</b>Energía</div>
+        <div class="kpi"><b id="h-transporte">–</b>Transporte</div>
+        <div class="kpi"><b id="h-total">–</b>Total</div>
+      </div>
+      <p><small id="h-nota"></small></p>
+    </div>
+
+    <div class="tarjeta"><h3>Consumo por proceso</h3><div id="tabla-procesos"></div></div>
+  </main>
+  <script src="js/api.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/seccion.js"></script>
+</body>
+</html>

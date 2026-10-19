@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaTech · Ingresar</title>
+  <link rel="icon" href="img/logo.png">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login">
+  <div class="caja-login">
+    <img class="logo" src="img/logo.png" alt="NovaTech">
+    <h2 style="text-align:center;margin:.2rem 0 1rem">Plataforma de Operaciones Inteligentes</h2>
+    <form id="form-login">
+      <label id="campo-nombre" style="display:none">Nombre<input name="nombre" autocomplete="name"></label>
+      <label>Correo<input type="email" name="email" required autocomplete="email"></label>
+      <label>Contraseña<input type="password" name="password" required minlength="6" autocomplete="current-password"></label>
+      <button class="btn" id="btn-enviar" type="submit">Ingresar</button>
+      <div id="msg" style="color:#dc2626;font-size:.85rem"></div>
+    </form>
+    <button class="enlace" id="btn-modo" type="button">Crear una cuenta</button>
+    <div class="suva"><img src="img/Suva-claro.png" alt="SUVA"></div>
+  </div>
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
