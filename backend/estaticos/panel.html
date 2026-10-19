@@ -3,29 +3,109 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NovaTech · Panel</title>
-  <link rel="stylesheet" href="css/base.css">
+  <meta name="theme-color" content="#111827">
+  <title>NovaTech · Panel general</title>
   <link rel="stylesheet" href="css/modulos.css">
   <link rel="stylesheet" href="css/panel.css">
 </head>
-<body>
-  <header id="nav"></header>
-  <main>
-    <h1>Panel general</h1>
-    <div class="grid">
-      <div class="tarjeta kpi"><b id="k-lotes">–</b>Lotes registrados</div>
-      <div class="tarjeta kpi"><b id="k-proceso">–</b>Lotes en proceso</div>
-      <div class="tarjeta kpi"><b id="k-pedidos">–</b>Pedidos activos</div>
-      <div class="tarjeta kpi"><b id="k-kwh">–</b>kWh (30 días)</div>
-    </div>
-    <div class="tarjeta"><h3>Alertas</h3><div id="alertas">Cargando…</div></div>
-    <div class="grid">
-      <a class="tarjeta" href="produccion.html"><h3>Trazabilidad Inteligente</h3>Lotes, etapas, certificados con QR.</a>
-      <a class="tarjeta" href="logistica.html"><h3>Logística Inteligente</h3>Transportistas, rutas y pedidos.</a>
-      <a class="tarjeta" href="costos.html"><h3>Eficiencia Energética</h3>Consumo, tarifas y costo por lote.</a>
-      <a class="tarjeta" href="reportes.html"><h3>Reportes</h3>Alertas y huella de carbono.</a>
-    </div>
-  </main>
+<body class="panel-page">
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Navegación principal">
+      <a class="brand" href="panel.html" aria-label="NovaTech inicio">
+        <span class="brand-mark">N</span>
+        <span class="brand-name">Nova<span>Tech</span></span>
+      </a>
+
+      <a class="compose-link" href="panel.html">
+        <span class="compose-icon">＋</span><span>Panel general</span>
+      </a>
+
+      <div class="nav-caption">ESPACIO DE TRABAJO</div>
+      <nav class="side-nav">
+        <a class="nav-item active" href="panel.html"><span class="nav-icon">▦</span><span>Resumen</span><span class="nav-indicator"></span></a>
+        <a class="nav-item" href="produccion.html"><span class="nav-icon">◫</span><span>Trazabilidad inteligente</span></a>
+        <a class="nav-item" href="logistica.html"><span class="nav-icon">⇄</span><span>Logística inteligente</span></a>
+        <a class="nav-item" href="costos.html"><span class="nav-icon">ϟ</span><span>Eficiencia energética</span></a>
+        <a class="nav-item" href="reportes.html"><span class="nav-icon">▤</span><span>Reportes</span></a>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div>
+        <div><strong>Sistema operativo</strong><small>Servicios conectados</small></div>
+      </div>
+      <!-- Se conserva el punto de montaje por compatibilidad con sesion.js -->
+      <div id="nav" class="session-mount" aria-label="Sesión"></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>NovaTech</span><span class="crumb-separator">/</span><strong>Panel general</strong></div>
+        <div class="topbar-right">
+          <span class="live-pill"><span></span> En vivo</span>
+          <div class="avatar" title="Usuario">N</div>
+        </div>
+      </header>
+
+      <section class="page-intro">
+        <div>
+          <div class="eyebrow">CENTRO DE CONTROL</div>
+          <h1>Panel general</h1>
+          <p>Una vista clara del estado de tus operaciones y recursos.</p>
+        </div>
+        <div class="date-chip"><span class="date-icon">◷</span> Resumen operativo</div>
+      </section>
+
+      <section class="section-heading">
+        <div><h2>Indicadores clave</h2><p>Actividad y rendimiento reciente</p></div>
+      </section>
+      <section class="kpi-grid" aria-label="Indicadores clave">
+        <article class="metric-card metric-blue">
+          <div class="metric-top"><span class="metric-label">Lotes registrados</span><span class="metric-icon">▦</span></div>
+          <div class="metric-value" id="k-lotes">–</div>
+          <div class="metric-foot"><span class="metric-dot"></span> Total de lotes</div>
+        </article>
+        <article class="metric-card metric-violet">
+          <div class="metric-top"><span class="metric-label">Lotes en proceso</span><span class="metric-icon">◷</span></div>
+          <div class="metric-value" id="k-proceso">–</div>
+          <div class="metric-foot"><span class="metric-dot"></span> En producción</div>
+        </article>
+        <article class="metric-card metric-teal">
+          <div class="metric-top"><span class="metric-label">Pedidos activos</span><span class="metric-icon">⇄</span></div>
+          <div class="metric-value" id="k-pedidos">–</div>
+          <div class="metric-foot"><span class="metric-dot"></span> Seguimiento logístico</div>
+        </article>
+        <article class="metric-card metric-amber">
+          <div class="metric-top"><span class="metric-label">Consumo · 30 días</span><span class="metric-icon">ϟ</span></div>
+          <div class="metric-value"><span id="k-kwh">–</span><small>kWh</small></div>
+          <div class="metric-foot"><span class="metric-dot"></span> Energía acumulada</div>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <article class="panel-card alerts-card">
+          <div class="card-heading">
+            <div><span class="heading-icon alert-heading-icon">!</span><div><h2>Centro de alertas</h2><p>Eventos que requieren atención</p></div></div>
+            <span class="subtle-label">ESTADO ACTUAL</span>
+          </div>
+          <div id="alertas" class="alerts-list"><div class="loading-state"><span class="loading-dot"></span> Cargando alertas…</div></div>
+        </article>
+
+        <article class="panel-card quick-card">
+          <div class="card-heading">
+            <div><span class="heading-icon shortcut-heading-icon">↗</span><div><h2>Accesos rápidos</h2><p>Ve directamente a un módulo</p></div></div>
+          </div>
+          <div class="shortcut-list">
+            <a class="shortcut" href="produccion.html"><span class="shortcut-symbol blue-symbol">◫</span><span class="shortcut-copy"><strong>Trazabilidad inteligente</strong><small>Lotes, etapas y certificados QR</small></span><span class="shortcut-arrow">↗</span></a>
+            <a class="shortcut" href="logistica.html"><span class="shortcut-symbol teal-symbol">⇄</span><span class="shortcut-copy"><strong>Logística inteligente</strong><small>Transportistas, rutas y pedidos</small></span><span class="shortcut-arrow">↗</span></a>
+            <a class="shortcut" href="costos.html"><span class="shortcut-symbol amber-symbol">ϟ</span><span class="shortcut-copy"><strong>Eficiencia energética</strong><small>Consumo, tarifas y costos</small></span><span class="shortcut-arrow">↗</span></a>
+            <a class="shortcut" href="reportes.html"><span class="shortcut-symbol violet-symbol">▤</span><span class="shortcut-copy"><strong>Reportes</strong><small>Alertas y huella de carbono</small></span><span class="shortcut-arrow">↗</span></a>
+          </div>
+        </article>
+      </section>
+      <footer class="page-footer"><span>NovaTech · Panel de operaciones</span><span>Diseñado para una gestión más clara</span></footer>
+    </main>
+  </div>
+
   <script src="js/api.js"></script>
   <script src="js/sesion.js"></script>
   <script src="js/panel.js"></script>

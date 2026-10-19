@@ -1,30 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NovaTech · Trazabilidad</title>
-  <link rel="stylesheet" href="css/.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech | Producción</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/modulos.css">
 </head>
+
 <body data-seccion="produccion">
-  <header id="nav"></header>
-  <main>
-    <h1>Trazabilidad Inteligente</h1>
-    <div class="tarjeta">
-      <h3>Registrar lote</h3>
-      <form id="form-lote" class="fila">
-        <label>Producto<input name="producto" required></label>
-        <label>Cantidad<input name="cantidad" type="number" step="any" min="0" data-num required></label>
-        <label>Unidad<input name="unidad" value="unidades"></label>
-        <label>Responsable<input name="responsable"></label>
-        <button class="btn" type="submit">Crear lote</button>
-      </form>
-    </div>
-    <div class="tarjeta"><h3>Lotes</h3><div id="tabla-lotes"></div></div>
-    <div class="tarjeta" id="detalle"><p class="vacio">Selecciona un lote para ver y actualizar sus etapas.</p></div>
-  </main>
-  <script src="js/api.js"></script>
-  <script src="js/sesion.js"></script>
-  <script src="js/seccion.js"></script>
+
+    <header id="nav"></header>
+
+    <main>
+
+        <div class="encabezado-pagina">
+            <h1>Trazabilidad Inteligente</h1>
+            <p>
+                Gestiona lotes, controla procesos productivos y realiza
+                seguimiento completo de cada producto.
+            </p>
+        </div>
+
+        <section class="tarjeta">
+
+            <h3>Registrar Nuevo Lote</h3>
+
+            <form id="form-lote" class="fila">
+
+                <label>
+                    Producto
+                    <input
+                        type="text"
+                        name="producto"
+                        placeholder="Nombre del producto"
+                        required>
+                </label>
+
+                <label>
+                    Cantidad
+                    <input
+                        type="number"
+                        name="cantidad"
+                        min="0"
+                        step="any"
+                        placeholder="0"
+                        data-num
+                        required>
+                </label>
+
+                <label>
+                    Unidad
+                    <input
+                        type="text"
+                        name="unidad"
+                        value="unidades">
+                </label>
+
+                <label>
+                    Responsable
+                    <input
+                        type="text"
+                        name="responsable"
+                        placeholder="Nombre del responsable">
+                </label>
+
+                <div class="acciones-formulario">
+                    <button
+                        type="submit"
+                        class="btn">
+                        Crear Lote
+                    </button>
+                </div>
+
+            </form>
+
+        </section>
+
+        <section class="tarjeta">
+
+            <div class="cabecera-seccion">
+
+                <h3>Lotes Registrados</h3>
+
+                <button class="btn">
+                    Actualizar
+                </button>
+
+            </div>
+
+            <div id="tabla-lotes">
+
+                <p class="vacio">
+                    No existen lotes registrados actualmente.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="tarjeta">
+
+            <h3>Detalle del Lote</h3>
+
+            <div id="detalle">
+
+                <p class="vacio">
+                    Selecciona un lote para consultar etapas,
+                    trazabilidad, responsables y movimientos.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/api.js"></script>
+    <script src="js/sesion.js"></script>
+    <script src="js/seccion.js"></script>
+
 </body>
+
 </html>
