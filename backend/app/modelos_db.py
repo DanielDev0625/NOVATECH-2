@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from sqlalchemy import (Boolean, Column, DateTime, Float, ForeignKey, Integer,
                         String, Text, create_engine)
 from sqlalchemy.orm import declarative_base, relationship, sessionmaker
+from sqlalchemy.pool import NullPool
 
 load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
@@ -16,7 +17,10 @@ if URL.startswith("postgresql://"):
     URL = URL.replace("postgresql://", "postgresql+psycopg2://", 1)
 
 connect_args = {"check_same_thread": False} if URL.startswith("sqlite") else {}
-engine = create_engine(URL, pool_pre_ping=True, connect_args=connect_args)
+# · En Vercel cada petición puede correr en una instancia distinta: no se guardan conexiones abiertas
+# · (Neon ya trae su propio pooler). En local sí se reutilizan.
+opciones = {"poolclass": NullPool} if os.getenv("VERCEL") else {"pool_pre_ping": True}
+engine = create_engine(URL, connect_args=connect_args, **opciones)
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 Base = declarative_base()
 

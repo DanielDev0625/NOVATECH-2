@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartOps · Logística y Distribución</title>
+  <link rel="icon" href="img/smartops-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/smartops.css">
+</head>
+<body data-seccion="logistica">
+  <main>
+    <section class="hero">
+      <h1>Logística y Distribución</h1>
+      <p>Gestiona transportistas, vehículos, rutas y pedidos desde una única plataforma.</p>
+    </section>
+
+    <section class="kpis">
+      <div class="kpi-card"><span>Transportistas</span><h2 id="kpi-transportistas">0</h2></div>
+      <div class="kpi-card"><span>Vehículos</span><h2 id="kpi-vehiculos">0</h2></div>
+      <div class="kpi-card"><span>Pedidos activos</span><h2 id="kpi-pedidos">0</h2></div>
+      <div class="kpi-card"><span>Entregas realizadas</span><h2 id="kpi-entregas">0</h2></div>
+    </section>
+
+    <section class="tarjeta">
+      <div class="cabecera-seccion"><h3>Transportistas</h3></div>
+      <form id="form-transportista" class="fila">
+        <label>Nombre<input type="text" name="nombre" required></label>
+        <label>Teléfono<input type="text" name="telefono"></label>
+        <label>Valoración (1-5)<input type="number" name="valoracion" min="1" max="5" step="0.1" value="4" data-num></label>
+        <label>Costo por km<input type="number" name="costo_km" min="0" step="any" data-num required></label>
+        <div class="acciones-formulario"><button class="btn" type="submit">Agregar</button></div>
+      </form>
+      <div id="tabla-transportistas"><p class="vacio">No hay transportistas registrados.</p></div>
+    </section>
+
+    <section class="tarjeta">
+      <div class="cabecera-seccion"><h3>Vehículos</h3></div>
+      <form id="form-vehiculo" class="fila">
+        <label>Transportista<select id="veh-transportista" name="transportista_id" data-num required></select></label>
+        <label>Placa<input type="text" name="placa" required></label>
+        <label>Tipo
+          <select name="tipo"><option>Camión</option><option>Camioneta</option><option>Furgón</option><option>Moto</option></select>
+        </label>
+        <label>Modelo<input type="text" name="modelo"></label>
+        <label>Capacidad (kg)<input type="number" name="capacidad_kg" min="0" step="any" data-num required></label>
+        <div class="acciones-formulario"><button class="btn" type="submit">Agregar</button></div>
+      </form>
+      <div id="tabla-vehiculos"><p class="vacio">No hay vehículos registrados.</p></div>
+    </section>
+
+    <section class="tarjeta">
+      <div class="cabecera-seccion"><h3>Nuevo pedido</h3></div>
+      <form id="form-pedido" class="fila">
+        <label>Lote (opcional)<input type="text" name="lote_codigo" placeholder="LOT-..."></label>
+        <label>Cliente<input type="text" name="cliente" required></label>
+        <label>Origen<select id="ped-origen" name="origen" required></select></label>
+        <label>Destino<select id="ped-destino" name="destino" required></select></label>
+        <label>Peso (kg)<input type="number" name="peso_kg" min="0" step="any" data-num></label>
+        <label>Transportista<select id="ped-transportista" name="transportista_id" data-num></select></label>
+        <label>Vehículo<select id="ped-vehiculo" name="vehiculo_id" data-num></select></label>
+        <div class="acciones-formulario"><button class="btn" type="submit">Crear pedido</button></div>
+      </form>
+      <p style="margin-top:14px"><button class="btn sec sm" id="btn-sugerir" type="button">Sugerir transporte</button></p>
+      <div id="sugerencias"></div>
+      <div id="tabla-pedidos"><p class="vacio">No hay pedidos registrados.</p></div>
+    </section>
+
+    <section class="tarjeta">
+      <div class="cabecera-seccion"><h3>Optimizar ruta de entregas</h3></div>
+      <form id="form-ruta" class="fila">
+        <label>Origen<select id="ruta-origen"></select></label>
+        <label>Destinos (Ctrl/Cmd + clic para varios)<select id="ruta-destinos" multiple size="5"></select></label>
+        <div class="acciones-formulario"><button class="btn" type="submit">Calcular ruta</button></div>
+      </form>
+      <div id="ruta-resultado" style="margin-top:14px"></div>
+    </section>
+  </main>
+
+  <script src="js/iconos.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/seccion.js"></script>
+</body>
+</html>

@@ -3,11 +3,7 @@ uvicorn
 sqlalchemy
 psycopg2-binary
 python-dotenv
-python-multipart
 PyJWT
-passlib
-bcrypt
 qrcode
 pillow
 reportlab
-jinja2

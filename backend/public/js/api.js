@@ -1,5 +1,7 @@
 const Api = {
-  token: () => localStorage.getItem("token"),
+  // · La sesión vive en localStorage ("Recordarme") o en sessionStorage (se cierra con el navegador).
+  token: () => localStorage.getItem("token") || sessionStorage.getItem("token"),
+  usuario: () => JSON.parse(localStorage.getItem("usuario") || sessionStorage.getItem("usuario") || "{}"),
 
   async req(method, path, body) {
     const headers = { "Content-Type": "application/json" };
@@ -31,14 +33,19 @@ const Api = {
     window.open(URL.createObjectURL(await r.blob()), "_blank");
   },
 
-  guardarSesion(d) {
-    localStorage.setItem("token", d.token);
-    localStorage.setItem("usuario", JSON.stringify(d.usuario));
+  guardarSesion(d, recordar = true) {
+    Api.limpiar();
+    const almacen = recordar ? localStorage : sessionStorage;
+    almacen.setItem("token", d.token);
+    almacen.setItem("usuario", JSON.stringify(d.usuario));
+  },
+
+  limpiar() {
+    ["token", "usuario"].forEach((k) => { localStorage.removeItem(k); sessionStorage.removeItem(k); });
   },
 
   salir() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("usuario");
+    Api.limpiar();
     location.href = "login.html";
   },
 };

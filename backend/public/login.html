@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartOps · Ingresar</title>
+  <link rel="icon" href="img/smartops-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/smartops.css">
+</head>
+<body>
+  <div class="login-pagina">
+    <section class="login-izq oscuro" aria-label="Presentación">
+      <div>
+        <a class="marca" href="login.html">
+          <img src="img/smartops-mark-light.svg" alt="">
+          <span class="marca-texto"><span class="wordmark">Smart<b>Ops</b></span>
+          <span class="marca-lema">Operaciones Inteligentes para PyMEs Industriales</span></span>
+        </a>
+        <div style="margin-top:64px">
+          <h1>Más control, mayor productividad, mejores <em>decisiones.</em></h1>
+          <p class="intro">Integra, automatiza y optimiza tus operaciones industriales con una plataforma diseñada para hacer crecer tu PyME.</p>
+          <div class="login-modulos">
+            <h2>Nuestros módulos</h2>
+            <div class="modulo-fila"><span class="ico-cuadro c-azul" data-ico="grafica"></span><div><strong>Producción y Operaciones</strong><small>Planifica, controla y optimiza tu producción.</small></div><span data-ico="chevron"></span></div>
+            <div class="modulo-fila"><span class="ico-cuadro c-verde" data-ico="camion"></span><div><strong>Logística y Distribución</strong><small>Rutas, entregas y seguimiento en tiempo real.</small></div><span data-ico="chevron"></span></div>
+            <div class="modulo-fila"><span class="ico-cuadro c-naranja" data-ico="dinero"></span><div><strong>Costos y Rentabilidad</strong><small>Conoce tus costos y mejora tus márgenes.</small></div><span data-ico="chevron"></span></div>
+            <div class="modulo-fila"><span class="ico-cuadro c-morado" data-ico="barras"></span><div><strong>Análisis y Reportes</strong><small>Datos en tiempo real, decisiones con confianza.</small></div><span data-ico="chevron"></span></div>
+          </div>
+        </div>
+      </div>
+      <p class="login-pie">Tu operación, en una sola plataforma.</p>
+    </section>
+
+    <section class="login-der">
+      <div class="caja-login">
+        <div class="marca">
+          <img src="img/smartops-mark.svg" alt="">
+          <span class="marca-texto"><span class="wordmark">Smart<b>Ops</b></span>
+          <span class="marca-lema">Operaciones Inteligentes para PyMEs Industriales</span></span>
+        </div>
+        <h2 id="titulo">Bienvenido</h2>
+        <p class="sub" id="subtitulo">Inicia sesión para acceder a tu plataforma</p>
+
+        <form id="form-login" novalidate>
+          <div class="campo campo-nombre" id="campo-nombre">
+            <span data-ico="usuario"></span>
+            <input name="nombre" placeholder="Nombre completo" autocomplete="name" aria-label="Nombre completo">
+          </div>
+          <div class="campo">
+            <span data-ico="usuario"></span>
+            <input type="email" name="email" placeholder="Correo electrónico" autocomplete="email" aria-label="Correo electrónico" required>
+          </div>
+          <div class="campo">
+            <span data-ico="candado"></span>
+            <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="current-password" aria-label="Contraseña" required minlength="6">
+            <button class="ver" id="btn-ver" type="button" aria-label="Mostrar contraseña"></button>
+          </div>
+          <div class="fila-opciones">
+            <label class="recordar"><input type="checkbox" id="recordar" checked> Recordarme</label>
+          </div>
+          <button class="btn btn-grande" id="btn-enviar" type="submit"><span id="txt-enviar">Iniciar sesión</span><span data-ico="flecha"></span></button>
+          <div class="msg-error" id="msg" role="alert"></div>
+        </form>
+
+        <p class="login-alterno"><span id="txt-modo">¿No tienes una cuenta?</span> <button class="enlace" id="btn-modo" type="button">Crear una cuenta</button></p>
+      </div>
+    </section>
+  </div>
+  <script src="js/iconos.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

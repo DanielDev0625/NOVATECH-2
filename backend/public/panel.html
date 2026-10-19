@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1c36">
+  <title>SmartOps · Inicio</title>
+  <link rel="icon" href="img/smartops-mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/smartops.css">
+</head>
+<body>
+  <main>
+    <section class="bienvenida">
+      <div>
+        <h1>Bienvenido a SmartOps</h1>
+        <p>Tu plataforma de operaciones inteligentes para PyMEs industriales.</p>
+        <p>Toma decisiones basadas en datos, optimiza tus procesos y haz crecer tu negocio.</p>
+      </div>
+      <div class="banner"><span>Eficiencia, control<br>y crecimiento en<br><em>un solo lugar.</em></span></div>
+    </section>
+
+    <section class="kpi-grid" aria-label="Indicadores clave">
+      <article class="metric-card">
+        <span class="ico-cuadro c-azul" data-ico="grafica"></span>
+        <div><div class="metric-label">Producción hoy</div><div class="metric-value"><span id="k-prod">–</span><small>unidades</small></div></div>
+        <div class="metric-foot" id="f-prod"></div>
+      </article>
+      <article class="metric-card">
+        <span class="ico-cuadro c-verde" data-ico="camion"></span>
+        <div><div class="metric-label">Órdenes en tránsito</div><div class="metric-value"><span id="k-transito">–</span><small id="s-transito"></small></div></div>
+        <div class="metric-foot" id="f-transito"></div>
+      </article>
+      <article class="metric-card">
+        <span class="ico-cuadro c-naranja" data-ico="dinero"></span>
+        <div><div class="metric-label">Costo de operación</div><div class="metric-value" id="k-costo">–</div></div>
+        <div class="metric-foot" id="f-costo"></div>
+      </article>
+      <article class="metric-card">
+        <span class="ico-cuadro c-morado" data-ico="barras"></span>
+        <div><div class="metric-label">Lotes en proceso</div><div class="metric-value"><span id="k-proceso">–</span><small id="s-proceso"></small></div></div>
+        <div class="metric-foot" id="f-proceso"></div>
+      </article>
+    </section>
+
+    <div class="seccion-titulo"><h2>Módulos principales</h2></div>
+    <section class="modulos-grid">
+      <a class="modulo-card m-azul" href="produccion.html"><span class="ico-cuadro c-azul" data-ico="grafica"></span><h3>Producción y Operaciones</h3><p>Planifica, controla y optimiza tu producción.</p><span data-ico="flecha"></span></a>
+      <a class="modulo-card m-verde" href="logistica.html"><span class="ico-cuadro c-verde" data-ico="camion"></span><h3>Logística y Distribución</h3><p>Rutas, entregas y seguimiento en tiempo real.</p><span data-ico="flecha"></span></a>
+      <a class="modulo-card m-naranja" href="costos.html"><span class="ico-cuadro c-naranja" data-ico="dinero"></span><h3>Costos y Rentabilidad</h3><p>Conoce tus costos y mejora tus márgenes.</p><span data-ico="flecha"></span></a>
+      <a class="modulo-card m-morado" href="reportes.html"><span class="ico-cuadro c-morado" data-ico="barras"></span><h3>Análisis y Reportes</h3><p>Datos en tiempo real, decisiones con confianza.</p><span data-ico="flecha"></span></a>
+    </section>
+
+    <section class="panel-grid">
+      <article class="panel-card">
+        <h2>Actividad reciente</h2>
+        <div id="actividad"><p class="cargando">Cargando actividad…</p></div>
+      </article>
+      <article class="panel-card">
+        <h2>Producción de los últimos 7 días</h2>
+        <div id="grafico"><p class="cargando">Cargando…</p></div>
+      </article>
+      <article class="panel-card ayuda-card">
+        <div class="ayuda-cab"><span class="ico-cuadro" data-ico="campana"></span><h2>Centro de alertas</h2></div>
+        <div id="alertas" class="lista-alertas-panel"><p class="cargando">Cargando alertas…</p></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="js/iconos.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/sesion.js"></script>
+  <script src="js/panel.js"></script>
+</body>
+</html>

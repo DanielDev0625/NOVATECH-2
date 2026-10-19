@@ -24,7 +24,7 @@ def generar_certificado(l: Lote, url: str) -> io.BytesIO:
     c.setFont("Helvetica-Bold", 20)
     c.drawString(50, h - 70, "Certificado de trazabilidad")
     c.setFont("Helvetica", 11)
-    c.drawString(50, h - 90, "NovaTech - Plataforma de Operaciones Inteligentes")
+    c.drawString(50, h - 90, "SmartOps - Operaciones Inteligentes para PyMEs Industriales")
 
     # · Datos principales del lote.
     y = h - 135

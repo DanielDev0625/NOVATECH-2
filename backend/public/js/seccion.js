@@ -86,6 +86,8 @@ Secciones.produccion = async () => {
     });
   });
 
+  $("#btn-actualizar").addEventListener("click", () => seguro(async () => { await cargar(); toast("Lista actualizada"); }));
+
   $("#tabla-lotes").addEventListener("click", (e) => {
     const b = e.target.closest("[data-ver]");
     if (b) seguro(() => verLote(b.dataset.ver));
@@ -121,6 +123,11 @@ Secciones.logistica = async () => {
   const cargar = async () => {
     [transportistas, vehiculos] = await Promise.all([Api.get("/logistica/transportistas"), Api.get("/logistica/vehiculos")]);
     const pedidos = await Api.get("/logistica/pedidos");
+    // · Indicadores de la parte superior.
+    $("#kpi-transportistas").textContent = transportistas.length;
+    $("#kpi-vehiculos").textContent = vehiculos.length;
+    $("#kpi-pedidos").textContent = pedidos.filter((p) => ["Pendiente", "En ruta"].includes(p.estado)).length;
+    $("#kpi-entregas").textContent = pedidos.filter((p) => p.estado === "Entregado").length;
     llenarSelect($("#veh-transportista"), transportistas, (t) => t.id, (t) => t.nombre);
     llenarSelect($("#ped-transportista"), transportistas, (t) => t.id, (t) => t.nombre, "— sin asignar —");
     llenarSelect($("#ped-vehiculo"), vehiculos, (v) => v.id, (v) => `${v.placa} (${v.transportista})`, "— sin asignar —");

@@ -19,6 +19,14 @@ def test_flujo_basico():
         lote = c.post("/api/lotes", json={"producto": "Café", "cantidad": 100}, headers=h).json()
         assert len(lote["etapas"]) == 3
 
+        # · El panel devuelve los indicadores nuevos (producción, tránsito, costo, semana y actividad).
+        panel = c.get("/api/panel/resumen", headers=h).json()
+        for clave in ("produccion_hoy", "ordenes_transito", "costo_operacion", "semana", "actividad", "alertas"):
+            assert clave in panel
+        assert len(panel["semana"]) == 7
+        assert panel["produccion_hoy"] >= 100  # el lote recién creado cuenta como producción de hoy
+        assert any(a["tipo"] == "lote" for a in panel["actividad"])
+
         pub = c.get(f"/api/publico/lotes/{lote['codigo']}")
         assert pub.status_code == 200
         pdf = c.get(f"/api/publico/lotes/{lote['codigo']}/certificado")

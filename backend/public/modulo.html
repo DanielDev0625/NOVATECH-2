@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartOps · Consulta de lote</title>
+  <link rel="icon" href="img/smartops-mark.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/smartops.css">
+</head>
+<body data-seccion="modulo">
+  <div class="pagina-publica">
+    <header class="cab-publica">
+      <a class="marca" href="login.html"><img src="img/smartops-mark.svg" alt=""><span class="marca-texto"><span class="wordmark">Smart<b>Ops</b></span></span></a>
+      <span class="pagina-sub" style="margin:0">Consulta de trazabilidad</span>
+    </header>
+  <main style="padding-left:0;padding-right:0">
+    <div class="tarjeta">
+      <form id="form-buscar" class="fila">
+        <label>Código de lote<input id="codigo" placeholder="LOT-20261019-ABC123" required></label>
+        <button class="btn" type="submit">Consultar</button>
+      </form>
+    </div>
+    <div id="resultado"></div>
+  </main>
+  </div>
+  <script src="js/iconos.js"></script>
+    <script src="js/api.js"></script>
+  <script src="js/seccion.js"></script>
+</body>
+</html>
